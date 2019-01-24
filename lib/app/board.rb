@@ -66,7 +66,7 @@ class Board
                         "c3" => @c3}
 
 
-    puts "Please choose a square:"
+    puts "#{@player_1}, ton tour :"
     user_choice = gets.chomp.downcase
     user_choice_hash.each do |choice, square|
       if user_choice == choice
@@ -110,10 +110,10 @@ class Board
   def check_for_winner
     win_combos.each do |combos|
       if combos[0] == "O" && combos[1] == "O" && combos[2] == "O"
-        puts "Computer wins! Good luck next time."
+          puts "Bravo #{@player_2}! T'as gagné !"
         exit
       elsif combos[0] == "X" && combos[1] == "X" && combos[2] == "X"
-        puts "You win! Good job!"
+        puts "Bravo #{@player_1}! T'as gagné !"
         exit
       #else
         #puts "Tie! Enter q to quit game."
@@ -122,9 +122,13 @@ class Board
   end
 
   def start_game
-    puts "Welcome to my Tic Tac Toe game!"
-    puts "To place your X on the grid, enter the location (ex--a1, b3)."
-    puts "To quit, enter q at any time"
+      sleep 2
+      puts "Le but du jeu est d'aligner vos 3 symboles : 'X' ou 'O'.".colorize(:red)
+      sleep 2
+      puts "Pour placer vos symboles sur la grille, tapez l'adresse de la case en utilisant le format suivant : a1, b3, etc."
+      sleep 2
+    puts "Pour quitter le jeu, tapez q"
+    sleep 2
   end
 
   def run_game
@@ -136,6 +140,4 @@ class Board
         player_2
       end
     end
-
-
 end
