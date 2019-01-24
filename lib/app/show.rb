@@ -2,7 +2,6 @@ require 'pry'
 
 class Show
 
-
   #def method to check if user's choice of move is valid/available. this should be called only after the player has had 3 turns but I don't know how to do that.
   def check_validity square_availability
     if square_availability == " "
@@ -97,10 +96,11 @@ class Show
     new_board
     while true
       print_grid
-      current_player_choice
-      other_player_choice
+      player_1
+      player_2
     end
   end
 
+
+
 end
-binding.pry

@@ -8,7 +8,7 @@ class Game
 
   def initialize
     @player = Player.new
-    @board = Show.new
+    @board = Board.new
 
   end
 
@@ -17,7 +17,10 @@ class Game
   end
 
   def show_game
-
-    box = @board.show_game
+    board = @board.perform
   end
+
+  def run_game
+  
+
 end
