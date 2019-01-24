@@ -9,9 +9,11 @@ class Player
     puts "Qui est le/la premier(ière) joueur(euse) ?"
     print ">"
     @player_1 = gets.chomp
+    print "> Tu joueras avec X\n"
 
     puts "Qui le/la 2ème joueur(euse) ?"
     print ">"
     @player_2 = gets.chomp
+    print "> Tu joueras avec O\n"
   end
 end
