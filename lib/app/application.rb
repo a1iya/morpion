@@ -22,9 +22,8 @@ class Application
           puts "Ok on démarre la partie soi-vif/ve"
           puts "Rentrer vos blaze svp ?"
           @game.create_player
-          @game.show_game
+          # @game.show_grid
           @game.run_game
-
         when 2
           puts "Pas de souci à bientôt"
           break
