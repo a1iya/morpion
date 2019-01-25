@@ -1,4 +1,5 @@
 require 'pry'
+require 'app/player'
 
 class Board
 
@@ -50,7 +51,7 @@ class Board
     if square_availability == " "
       true
     else
-      puts "That space is taken. Get your own!"
+    puts "Cette case est déjà prise. Tu perds ton tour !"
     end
   end
 
@@ -93,7 +94,7 @@ class Board
                         "c3" => @c3}
 
 
-    puts "Please choose a square:"
+    puts "#{@player_2}, c'est à toi :"
     user_choice = gets.chomp.downcase
     user_choice_hash.each do |choice, square|
       if user_choice == choice
@@ -134,8 +135,8 @@ class Board
   def run_game
       start_game
       new_board
+      print_grid
       while true
-        print_grid
         player_1
         player_2
       end

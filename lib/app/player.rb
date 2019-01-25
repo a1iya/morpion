@@ -4,7 +4,7 @@ class Player
   attr_writer :player_1 , :player_2
 
   def create_player
-    puts "Pour jouer vous devez rentrer deux joueurs ?"
+    puts "Pour jouer vous devez rentrer deux joueurs."
 
     puts "Qui est le/la premier(ière) joueur(euse) ?"
     print ">"

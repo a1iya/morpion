@@ -20,6 +20,7 @@ class Application
       sleep 1.5
       puts "1. Je veux jouer".colorize(:green)
       puts "2. J'ai pas le temps, je veux quitter"
+      print ">"
       params = gets.chomp.to_i
 
       case params
