@@ -11,4 +11,4 @@ Pour jouer, fais le git clone de ce dossier et lance la commande suivante dans t
 
 $ ruby app.rb
 
-Que la chance soit de ton côté ! (surtout si tu joues contre toi-même :yay:)
+Que la chance soit de ton côté ! (surtout si tu joues contre toi-même :shipit:)
