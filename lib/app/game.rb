@@ -2,7 +2,6 @@ require 'pry'
 # require 'application'
 require 'app/player'
 require 'app/board'
-require 'app/show'
 
 class Game
     
@@ -13,8 +12,7 @@ class Game
     end
     
     def rules
-        sleep 1
-        puts "---------- Règles du jeu ----------".colorize(:red)
+        puts "----------Règles du jeu----------".colorize(:red)
         sleep 1
         puts "Le but du jeu est d'aligner vos 3 symboles : 'X' ou 'O'.".colorize(:red)
         sleep 1
@@ -25,13 +23,11 @@ class Game
     
     def recruit_players
         puts "Pour jouer vous devez rentrer deux joueurs."
-        print "Bonjour Joueur numéro 1. "
+        print "\nBonjour Joueur numéro 1. "
         @players << Player.new('X')
-        sleep 1
-        print "Bonjour Joueur numéro 2. "
+        print "\nBonjour Joueur numéro 2. "
         @players << Player.new('O')
-        #print @players
-        #params = @player.create_player
+        sleep 2
     end
     
     def show_grid
@@ -40,14 +36,18 @@ class Game
     
     def start
         @board.print_grid
-        #board = @board.run_game
         turn = 0
-        while true
+        isfull = @board.isfull
+        while !isfull
             ask_player(@players[turn % 2])
             turn += 1
-            @board.check_for_winner
+            break if do_we_have_a_winner
+            isfull = @board.isfull
         end
-        
+        if isfull
+            puts "Dommage, personne n'a gagné cette fois-ci."
+        end
+        puts "La partie est terminée !"
         
     end
     
@@ -89,6 +89,21 @@ class Game
     end
     
     def do_we_have_a_winner
-        
+        aWinner = false
+        wins = @board.win_combos
+        wins.each do |combos|
+            if combos[0] == "O" && combos[1] == "O" && combos[2] == "O"
+                puts "Bravo #{@players[1].name}! T'as gagné !"
+                aWinner = true
+                #exit
+                elsif combos[0] == "X" && combos[1] == "X" && combos[2] == "X"
+                puts "Bravo #{@players[0].name}! T'as gagné !"
+                aWinner = true
+                #exit
+                #else
+                #puts "Tie! Enter q to quit game."
+            end #fin du if
+        end #fin du each
+        return aWinner
     end
 end
